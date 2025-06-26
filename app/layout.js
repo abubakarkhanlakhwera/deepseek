@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { AppContext, AppContextProvider } from "@/context/AppContext";
 
 const inter = Inter({
   variable: "--font-inder",
@@ -15,6 +17,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
+      <AppContextProvider>
     <html lang="en">
       <body
         className={`${inter.className}  antialiased`}
@@ -22,5 +26,7 @@ export default function RootLayout({ children }) {
         {children}
       </body>
     </html>
+    </AppContextProvider>
+    </ClerkProvider>
   );
 }
