@@ -14,7 +14,7 @@ export const useAppContext = ()=>{
 export const AppContextProvider = ({children})=>{
     const {user} = useUser()
     const {getToken} = useAuth()
-    const [Chat,setChats] = useState([]);
+    const [chats,setChats] = useState([]);
     const [selectedChat,setSelectedChat] = useState(null);
     const createNewChat = async()=>{
         try{
